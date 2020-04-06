@@ -38,6 +38,9 @@ class MainWindow(QObject):
         pause_button = self.window.findChild(QPushButton, 'pause_button')
         pause_button.clicked.connect(self.pause_button_clicked)
 
+        stop_button = self.window.findChild(QPushButton, 'stop_button')
+        stop_button.clicked.connect(self.stop_button_clicked)
+
         raise_volume_button = self.window.findChild(QPushButton, 'raise_volume_button')
         raise_volume_button.clicked.connect(self.raise_volume_button_clicked)
 
@@ -59,6 +62,9 @@ class MainWindow(QObject):
 
     def pause_button_clicked(self):
         self.music_player.pause()
+
+    def stop_button_clicked(self):
+        self.music_player.stop()
 
     def raise_volume_button_clicked(self):
         volume = self.music_player.volume()
